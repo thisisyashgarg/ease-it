@@ -1,0 +1,45 @@
+{{> header}}
+    <!-- navbar -->
+    <nav>
+    
+            <!-- img for logo -->
+            <p><img src="" alt="">Logo</p> 
+            <p>EaseIt</p>
+            <p>profile</p>
+            <p>logout</p>
+            <a href="/homepage">back</a>
+        
+    </nav>
+
+    <!-- top title -->
+    <div>
+        <h1>Diet Chart</h1>
+        <p>Enter your caloric intake, amount of carbs, proteins and fats and get your diet chart</p>
+    </div>
+
+    <!-- input  -->
+    <div>
+        <form method="post">
+            <label for="calories">Total Calories in kCal</label><br>
+            <input type="text" id="calories" name="calories"><br>
+
+            <label for="carbs">Carbohydrates in gms</label><br>
+            <input type="text" id="" name="carbs"><br>
+
+            <label for="protein">Protein in gms</label><br>
+            <input type="text" id="" name="protein"><br>
+
+            <label for="fats">Fats in gms</label><br>
+            <input type="text" id="" name="fats"><br>
+
+            <button type="submit">Generate</button>
+        </form> 
+    </div>
+
+    {{{body}}}
+
+    <script src="../../app.js"></script>
+    <script defer src="../../public/js/aiCall.js"></script>
+
+    
+{{> footer}}

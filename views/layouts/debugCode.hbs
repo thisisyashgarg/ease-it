@@ -1,0 +1,37 @@
+{{> header}}
+
+    <!-- navbar -->
+    <nav>
+    
+            <!-- img for logo -->
+            <p><img src="" alt="">Logo</p> 
+            <p>EaseIt</p>
+            <p>profile</p>
+            <p>logout</p>
+            <a href="/homepage">back</a>
+        
+    </nav>
+
+    <!-- top title -->
+    <div>
+        <h1>Debug Code</h1>
+        <p>Enter the whole code and get code with errors corrected </p>
+    </div>
+
+    <!-- input  -->
+    <div>
+        <form method="post">
+            <label for="inputCode">Enter your code here</label><br>
+            <textarea name="inputCode" id="" cols="30" rows="10"></textarea>
+            
+            <button type="submit">Debug</button>
+        </form> 
+    </div>
+
+    {{{body}}}
+
+
+    <script src="../../app.js"></script>
+    <script defer src="../../public/js/aiCall.js"></script>
+
+{{> footer}}

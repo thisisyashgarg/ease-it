@@ -1,0 +1,49 @@
+{{> header}}
+
+    <!-- navbar -->
+    <nav>
+    
+            <!-- img for logo -->
+            <p><img src="" alt="">Logo</p> 
+            <p>EaseIt</p>
+            <p>profile</p>
+            <p>logout</p>
+            <a href="/homepage">back</a>
+        
+    </nav>
+
+    <!-- top title -->
+    <div>
+        <h1>Personalised Message</h1>
+        <p>Just enter your message, tone of your message, language and other prompts and get a personalised message</p>
+    </div>
+
+    <!-- input  -->
+    <div>
+        <form method="post" action="/messages">
+            <label for="language">Language</label><br>
+            <input type="text" id="language" name="language"><br>
+
+            <label for="replyToMessage">Reply to message</label><br>
+            <input type="text" id="" name="replyToMessage" x-webkit-speech /><br>
+
+            <label for="replyToBeSent">Reply to be sent</label><br>
+            <input type="text" id="" name="replyToBeSent"><br>
+
+            <label for="sentiment">Sentiment</label><br>
+            <input type="text" id="" name="sentiment"><br>
+
+            <label for="tone">Tone</label><br>
+            <input type="text" id="" name="tone"><br>
+
+            <button type="submit">Generate</button>
+        </form> 
+    </div>
+
+    {{{body}}}
+
+    <script src="../../app.js"></script>
+    <script defer src="../../public/js/aiCall.js"></script>
+
+
+{{> footer}}
