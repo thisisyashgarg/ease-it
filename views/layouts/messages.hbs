@@ -22,19 +22,19 @@
     <div>
         <form method="post" action="/messages">
             <label for="language">Language</label><br>
-            <input type="text" id="language" name="language"><br>
+            <input type="text" id="language" name="language" required placeholder="English / Hindi "><br>
 
             <label for="replyToMessage">Reply to message</label><br>
-            <input type="text" id="" name="replyToMessage" x-webkit-speech /><br>
-
+            <input type="text" id="replyToMessage1" name="replyToMessage" required  placeholder="e.g When will you able to join us ?"><button id="mic1" type="button">Tap to Speak</button><br>
+            
             <label for="replyToBeSent">Reply to be sent</label><br>
-            <input type="text" id="" name="replyToBeSent"><br>
+            <input type="text" id="replyToMessage2" name="replyToBeSent" required placeholder="e.g I am sorry but I won’t be able to join "> <button id="mic2" type="button">Tap to Speak</button><br>
 
             <label for="sentiment">Sentiment</label><br>
-            <input type="text" id="" name="sentiment"><br>
+            <input type="text" id="" name="sentiment" required  placeholder="Positive / Negative / Neutral"><br>
 
             <label for="tone">Tone</label><br>
-            <input type="text" id="" name="tone"><br>
+            <input type="text" id="" name="tone" required placeholder="Rude , Polite, Formal, Informal, Sincere, Pleading, Sarcastic "><br>
 
             <button type="submit">Generate</button>
         </form> 
@@ -42,6 +42,74 @@
 
     {{{body}}}
 
+    <script>
+        //elements to be triggerred
+        const textFromSpeechBox1 = document.getElementById('replyToMessage1')
+        const buttonToRecordSpeech1= document.getElementById('mic1');
+        const textFromSpeechBox2 = document.getElementById('replyToMessage2')
+        const buttonToRecordSpeech2= document.getElementById('mic2');
+
+        //necessities for speech recognition, interfaces reqd
+        const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+        const SpeechGrammarList =  window.SpeechGrammarList || webkitSpeechGrammarList;
+        const SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+        //basic grammar 
+        const grammer = '#JSGF v1.0;';
+
+        const recognition = new SpeechRecognition();
+        const recognition2= new SpeechRecognition();
+        const speechRecognitionGrammerList = new SpeechGrammarList();
+
+        //adding grammar to created object
+        speechRecognitionGrammerList.addFromString(grammer, 1);
+        //adding grammar to created recognition
+        recognition.grammars = speechRecognitionGrammerList;
+        recognition.lang = 'en-US';
+        recognition.interimResults = true;
+        recognition2.grammars = speechRecognitionGrammerList;
+        recognition2.lang = 'en-US';
+        recognition2.interimResults = true;
+
+        //stop when user stops
+        recognition.onspeechend = () =>{
+            recognition.stop();
+        }
+        recognition2.onspeechend = () =>{
+            recognition2.stop();
+        }
+
+        recognition.onerror = (error) =>{
+            textFromSpeechBox1.textContent = `Error occured in recognition: ${error}`
+        }
+        recognition2.onerror = (error) =>{
+            textFromSpeechBox2.textContent = `Error occured in recognition: ${error}`
+        }
+        
+        buttonToRecordSpeech1.addEventListener('click', () =>{
+            recognition.start();
+        } )
+        buttonToRecordSpeech2.addEventListener('click', () =>{
+            recognition2.start();
+        } )
+
+        recognition.onresult = (input) => {
+            // console.log(input);
+            const last = input.results.length -1;
+            const dataToBeTranscripted = input.results[last][0].transcript;
+            textFromSpeechBox1.value = `${dataToBeTranscripted}`;
+            // console.log(openAICall(dataToBeTranscripted) );   
+        }
+        recognition2.onresult = (input) => {
+            // console.log(input);
+            const last = input.results.length -1;
+            const dataToBeTranscripted = input.results[last][0].transcript;
+            textFromSpeechBox2.value = `${dataToBeTranscripted}`;
+            // console.log(openAICall(dataToBeTranscripted) );   
+        }
+    </script>
+
+    {{!-- <script defer src="../../public/js/speechToText.js"></script> --}}
     <script src="../../app.js"></script>
     <script defer src="../../public/js/aiCall.js"></script>
 

@@ -3,7 +3,6 @@ import path from 'path';
 const __dirname = path.resolve();
 import bodyParser from 'body-parser';
 import exphbs from 'express-handlebars'
-import ejs from 'ejs'
 import { openAICall } from './public/js/aiCall.js';
 
 const app = express();
@@ -35,7 +34,7 @@ app.post('/messages', (req, res) =>{
     openAICall(prompt)
     .then(ans =>{
         console.log(ans);
-        res.render('main', {layout: 'messages.hbs', data: `${ans}`, label: 'Your Personalised Message'})
+        res.render('main', {layout: 'messages.hbs', data: `${ans.trimStart()}`, label: 'Your Personalised Message'})
     })
     .catch(err => console.log(err));
 })
@@ -49,7 +48,7 @@ app.post('/dietchart', (req, res)=>{
     openAICall(prompt)
     .then(ans =>{
         console.log(ans);
-        res.render('main', {layout: 'dietChart.hbs', data: `${ans}`, label: 'Your Diet Chart'})
+        res.render('main', {layout: 'dietChart.hbs', data: `${ans.trimStart()}`, label: 'Your Diet Chart'})
     })
     .catch(err => console.log(err)); 
 })
@@ -64,10 +63,9 @@ app.post('/debugcode', (req, res)=>{
     openAICall(prompt)
     .then(ans =>{
         console.log(ans);
-        res.render('main', {layout: 'debugCode.hbs', data: `${ans}`, label: 'Debugged Code'})
+        res.render('main', {layout: 'debugCode.hbs', data: `${ans.trimStart()}`, label: 'Debugged Code'})
     })
     .catch(err => console.log(err)); 
-   
 })
 
 app.get('/codeexplanation', (req, res)=>{
@@ -82,7 +80,7 @@ app.post('/codeexplanation', (req, res)=>{
     openAICall(prompt)
     .then(ans =>{
         console.log(ans);
-        res.render('main', {layout: 'codeExplanation.hbs', data: `${ans}`, label: 'Explanation'})
+        res.render('main', {layout: 'codeExplanation.hbs', data: `${ans.trimStart()}`, label: 'Explanation'})
     })
     .catch(err => console.log(err));  
 })
