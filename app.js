@@ -20,7 +20,7 @@ app.engine('hbs', exphbs.engine({
      partialsDir: __dirname+ '/views/partials'
 }));
 
-app.get('/homepage', (req, res)=>{
+app.get('/', (req, res)=>{
     res.render('main', {layout: 'homepage.hbs'})
 })
 
