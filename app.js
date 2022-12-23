@@ -30,7 +30,7 @@ app.get('/messages', (req, res)=>{
 })
 
 app.post('/messages', (req, res) =>{
-    const prompt = `Person A: ${req.body.replyToMessage}, Person B : ${req.body.replyToBeSent}, a more refined answer person B will give in response to Person A, in ${req.body.language} language, with ${req.body.sentiment} sentiment, with multiple tone ${req.body.tone}`;
+    const prompt = `Person A: ${req.body.replyToMessage}, Person B : ${req.body.replyToBeSent}, a better answer person B will give in response to Person A, in ${req.body.language} language, with ${req.body.sentiment} sentiment, with tone ${req.body.tone}`;
     openAICall(prompt)
     .then(ans =>{
         console.log(ans);
@@ -80,7 +80,7 @@ app.post('/codeexplanation', (req, res)=>{
     openAICall(prompt)
     .then(ans =>{
         console.log(ans);
-        res.render('main', {layout: 'codeExplanation.hbs', data: `${ans.trimStart()}`, label: 'Explanation'})
+        res.render('main', {layout: 'codeExplanation.hbs', data: `${ans}`, label: 'Explanation'})
     })
     .catch(err => console.log(err));  
 })
