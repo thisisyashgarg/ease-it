@@ -1,97 +1,92 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EaseIt - Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,300&family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-    {{!-- <!-- navbar -->
-    <nav>
-    
-            <!-- img for logo -->
-            <p><img src="" alt="">Logo</p> 
-            <p>EaseIt</p>
-            <p>profile</p>
-            <p>logout</p>
-        
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,300&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+    <nav
+      class="flex w-screen justify-center items-center text-center pt-10 bg-grey"
+    >
+      <!-- Flex Container -->
+      <div
+        class="inline-flex items-center justify-between space-x-9 bg-transparent py-4 px-20 rounded-2xl bg-black/10"
+      >
+        <!-- logo -->
+        <img src="../img/openai-logo.svg" class="pt-px" alt="" />
+        <!-- Links -->
+        <a
+          href="/"
+          class="font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+        >
+          EaseIt
+        </a>
+        <a href="" class="text-white">Profile</a>
+        <a href="" class="text-white">Logout</a>
+
+      </div>
     </nav>
 
-    <!-- cards -->
-    <div>
-        <div>
-            <h1>Personalised Message</h1>
-            <p>Just enter your message, tone of your message, language and other prompts and get a personalised message</p>
-            <a href="/messages">Create a personalised message-></a>
-        </div>
-        <div>
-            <h1>Diet  Chart</h1>
-            <p>Enter your caloric intake, amount of carbs, proteins and fats and get your diet chart</p>
-            <a href="/dietchart">Get your diet chart-></a>
-        </div>
+    <div
+      class="container m-auto grid grid-cols-2 justify-center"
+      style="margin-left:50px ;"
+    >
+
+      <div
+        class="home-padding p-8 bg-black/20 shadow-md backdrop-blur-sm rounded-2xl w-11/12 ml-2"
+      >
+        <h2
+          class="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4"
+        >Personalised Message</h2>
+        <p class="text-white p-4 text-xl">Just enter your message, tone of your
+          message, language and other prompts and get a personalised message</p>
+        <a href="/messages" class="text-cyan-300 p-4 text-xl">Create a
+          Personalised message →</a>
+      </div>
+      <div
+        class="home-padding p-8 bg-black/20 shadow-md backdrop-blur-sm rounded-2xl w-11/12"
+      >
+        <h2
+          class="font-extrabold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4"
+        >Diet Chart</h2>
+        <p class="text-white p-4 text-xl">Enter your caloric intake, amount of
+          carbs, proteins and fats and get your diet chart</p>
+        <a href="/dietchart" class="text-cyan-300 p-4 text-xl">Get your diet
+          chart →</a>
+      </div>
+      <div
+        class="home-padding p-8 bg-black/20 shadow-md backdrop-blur-sm rounded-2xl w-11/12"
+      >
+        <h2
+          class="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4"
+        >Debug Code</h2>
+        <p class="text-white p-4 text-xl">Enter the whole code and get the
+          debugged code
+        </p>
+        <a href="/debugcode" class="text-cyan-300 p-4 text-xl">Debug now →</a>
+      </div>
+      <div
+        class="home-padding p-8 bg-black/20 shadow-md backdrop-blur-sm rounded-2xl w-11/12"
+      >
+        <h2
+          class="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4"
+        >Code Explanation</h2>
+        <p class="text-white p-4 text-xl">Enter the whole code and get a
+          detailed explanation for the same</p>
+        <a href="/codeexplanation" class="text-cyan-300 text-xl p-4">Enter the
+          code →</a>
+      </div>
     </div>
 
-    <div>
-        <div>
-            <h1>Debug Code</h1>
-            <p>Enter the whole code and get the debugged code </p>
-            <a href="/debugcode">Debug now-></a>
-        </div>
-        <div>
-            <h1>Code  Explanation</h1>
-            <p><Enter the whole code and get a detailed explanation for the same /p>
-            <a href="/codeexplanation">Enter the code-></a>
-        </div>
-    </div> --}}
-
-   
-<body>
-
-<!-- Navbar -->
-<nav class="flex w-screen justify-center items-center text-center pt-10 bg-grey">
-  <!-- Flex Container -->
-  <div class="inline-flex items-center justify-between space-x-9">
-    <!-- logo -->
-    <img src="../img/openai-logo.svg"  class= "pt-px" alt="">
-    <!-- Links -->
-    <a href="/" class=" font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">
-     EaseIt
-    </a>
-    <a href="" class=" text-white">Profile</a>
-    <a href="" class=" text-white">Logout</a>
-
-  </div>
-</nav>
-
-
-
-<div class="container m-auto grid grid-cols-2  justify-center  " style="margin-left:50px ;" >
-
-  <div class="home-padding p-8 bg-black/20 shadow-md backdrop-blur-sm rounded-2xl w-11/12 ml-2">
-    <h2 class="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4">Personalised Message</h2>
-    <p class="text-white p-4 text-xl">Just enter your message, tone of your message, 
-      language and other prompts and get a personalised message</p>
-    <a href="/messages" class="text-cyan-300 p-4 text-xl">Create a Personalised message →</a>
-  </div>
-  <div class=" home-padding p-8 bg-black/20 shadow-md backdrop-blur-sm rounded-2xl w-11/12">
-    <h2 class="font-extrabold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4">Diet Chart</h2>
-    <p class="text-white p-4 text-xl">Enter your caloric intake, amount of carbs, proteins and fats and get your diet chart</p>
-    <a href="/dietchart" class="text-cyan-300 p-4 text-xl">Get your diet chart →</a>
-  </div>
-  <div class=" home-padding p-8 bg-black/20 shadow-md backdrop-blur-sm rounded-2xl w-11/12">
-    <h2 class="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4">Debug Code</h2>
-    <p class="text-white p-4 text-xl">Enter the whole code and get the debugged code </p>
-    <a href="/debugcode" class="text-cyan-300 p-4 text-xl ">Debug now →</a>
-  </div>
-  <div class=" home-padding p-8 bg-black/20 shadow-md backdrop-blur-sm rounded-2xl w-11/12">
-    <h2 class="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4">Code Explanation</h2>
-    <p class="text-white p-4 text-xl">Enter the whole code and get a detailed explanation for the same</p>
-    <a href="/codeexplanation" class="text-cyan-300 text-xl p-4">Enter the code →</a>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>

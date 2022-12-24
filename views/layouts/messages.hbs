@@ -1,210 +1,216 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EaseIt - Personalised Message</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,300&family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-{{!-- <body>
-    <!-- navbar -->
-    <nav>
-    
-            <!-- img for logo -->
-            <p><img src="" alt="">Logo</p> 
-            <p>EaseIt</p>
-            <p>profile</p>
-            <p>logout</p>
-            <a href="/homepage">back</a>
-        
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,300&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body class="mb-56">
+
+    <!-- Navbar -->
+    <nav
+      class="flex w-screen justify-center items-center text-center pt-10 bg-grey"
+    >
+      <!-- Flex Container -->
+      <div
+        class="inline-flex items-center justify-between space-x-9 bg-transparent py-4 px-20 rounded-2xl bg-black/10"
+      >
+        <!-- logo -->
+        <a href="/" class="text-cyan-300 text-right" style="font-size:1.5rem">
+          ←
+        </a>
+        <img src="../img/openai-logo.svg" class="pt-px" alt="" />
+        <!-- Links -->
+        <a
+          href="/"
+          class="font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+        >EaseIt</a>
+        <a href="" class="text-white">Profile</a>
+        <a href="" class="text-white">Logout</a>
+
+      </div>
     </nav>
 
-    <!-- top title -->
-    <div>
-        <h1>Personalised Message</h1>
-        <p>Just enter your message, tone of your message, language and other prompts and get a personalised message</p>
-    </div>
+    <!-- Page Topic -->
+    <section id="personalisedMessage">
+      <div class="content justify-center text-center pt-10 mt-10">
+        <h1
+          class="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+        >
+          Personalised Message
+        </h1>
+        <p class="text-xl text-white pt-6 max-w-sm mx-auto">
+          Just enter your message, tone of your message, language and other
+          prompts and get a personalised message
+        </p>
+      </div>
+    </section>
 
-    <!-- input  -->
-    <div>
-        <form method="post" action="/messages">
-            <label for="language">Language</label><br>
-            <input type="text" id="language" name="language" required placeholder="English / Hindi "><br>
+    <!-- Real Working -->
 
-            <label for="replyToMessage">Reply to message</label><br>
-            <input type="text" id="replyToMessage1" name="replyToMessage" required  placeholder="e.g When will you able to join us ?"><button id="mic1" type="button">Tap to Speak</button><br>
-            
-            <label for="replyToBeSent">Reply to be sent</label><br>
-            <input type="text" id="replyToMessage2" name="replyToBeSent" required placeholder="e.g I am sorry but I won’t be able to join "> <button id="mic2" type="button">Tap to Speak</button><br>
+    <section id="getAnswer">
+      <!-- flex-row division -->
+      <div
+        class="flex flex-row mt-24 space-x-32 justify-center"
+        style="padding: 0;"
+      >
+        <!-- form -->
+        <div class="text-white">
 
-            <label for="sentiment">Sentiment</label><br>
-            <input type="text" id="" name="sentiment" required  placeholder="Positive / Negative / Neutral"><br>
+          <form
+            method="post"
+            action="/messages"
+            class="leading-10"
+            style="margin-left: 10rem;"
+          >
+            <label for="language" class="block mb-2 text-white">Language</label>
+            <input
+              style="padding: 5px;"
+              placeholder="English / Hindi "
+              type="text"
+              id="language"
+              name="language"
+              required
+              class="bg-transparent .border-gray-600 text-white rounded-lg w-96"
+            />
 
-            <label for="tone">Tone</label><br>
-            <input type="text" id="" name="tone" required placeholder="Rude , Polite, Formal, Informal, Sincere, Pleading, Sarcastic "><br>
+            <label for="replyToMessage" class="block mb-2 text-white pt-2">Reply
+              to message</label>
+            <div class="flex">
+              <input
+                style="padding: 5px;"
+                placeholder="e.g When will you able to join us ?"
+                type="text"
+                id="replyToMessage1"
+                name="replyToMessage"
+                required
+                class="bg-transparent border-gray-500 text-white rounded-lg w-96"
+              />
+              <button
+                id="mic1"
+                type="button"
+                class="bg-transparent border-gray-400 text-white"
+                style="font-size: 0.7rem"
+              ><img style="size:;" src="../img/Vector.svg" alt="" /></button>
+            </div>
 
-            <button type="submit">Generate</button>
-        </form> 
-    </div>
+            <label for="replyToBeSent" class="block mb-2 text-white">Reply to be
+              sent</label>
+            <div class="flex">
+              <input
+                style="padding: 5px;"
+                placeholder="e.g I am sorry but I won’t be able to join "
+                type="text"
+                id="replyToMessage2"
+                name="replyToBeSent"
+                required
+                class="bg-transparent border-gray-400 text-white rounded-lg w-96"
+              />
+              <button
+                id="mic2"
+                type="button"
+                class="bg-transparent border-gray-400 text-white"
+                style="font-size: 0.7rem"
+              ><img style="size:;" src="../img/Vector.svg" alt="" /></button>
+            </div>
 
-    {{{body}}}
+            <label
+              for="sentiment"
+              class="block mb-2 text-white"
+            >Sentiment</label>
+            <input
+              style="padding: 5px;"
+              placeholder="Positive / Negative / Neutral"
+              type="text"
+              id=""
+              name="sentiment"
+              required
+              class="bg-transparent border-gray-400 text-white rounded-lg w-96"
+            />
 
-    
+            <label for="tone" class="block mb-2 text-white">Tone</label>
+            <input
+              style="padding: 5px;"
+              placeholder="Rude, Polite, Formal, Informal, Sincere, Pleading, Sarcastic "
+              type="text"
+              id=""
+              name="tone"
+              required
+              class="bg-transparent border-gray-400 text-white rounded-lg w-96"
+            /><br />
 
+            <button
+              type="submit"
+              class="bg-transparent border-gray-400 text-white text-cyan-300 pl-16 pt-7 text-2xl"
+            >Generate →</button>
+          </form>
 
-
-</body> --}}
-
-<body class="mb-56">
-
-
-<!-- Navbar -->
-<nav class="flex w-screen justify-center items-center text-center pt-10 bg-grey">
-  <!-- Flex Container -->
-  <div class="inline-flex items-center justify-between space-x-9">
-    <!-- logo -->
-    <a href="/" class="text-cyan-300 text-right" style="font-size:1.5rem" > ← </a>
-    <img src="../img/openai-logo.svg"  class= "pt-px" alt="">
-    <!-- Links -->
-    <a href="/" class=" font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">EaseIt</a>
-    <a href="" class=" text-white">Profile</a>
-    <a href="" class=" text-white">Logout</a>
-    
-  </div>
-</nav>
-
-<!-- Page Topic -->
-<section id="personalisedMessage">
-  <div class="content justify-center text-center pt-10 mt-10">
-    <h1 class="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-      Personalised Message
-    </h1>
-    <p class="text-xl text-white pt-6 max-w-sm mx-auto">
-      Just enter your message, tone of your message, language and other prompts and get a personalised message
-    </p>
-  </div>
-</section>
-
-<!-- Real Working -->
-
-<section id="getAnswer">
-  <!-- flex-row division -->
-  <div class="flex flex-row mt-24 space-x-32 justify-center" style="padding: 0;">
-    <!-- form -->
-    <div class = "text-white">
-
-      <form method="post" action="/messages" class="leading-10" style="margin-left: 10rem;">
-        <label for="language" class="block mb-2 text-white">Language</label>
-        <input style="padding: 5px;"placeholder="English / Hindi " type="text" id="language" name="language" required class="bg-transparent .border-gray-600 text-white rounded-lg w-96">
-      
-        <label for="replyToMessage" class="block mb-2 text-white pt-2">Reply to message</label>
-        <div class="flex">
-            <input style="padding: 5px;"placeholder="e.g When will you able to join us ?" type="text" id="replyToMessage1" name="replyToMessage" required class="bg-transparent border-gray-500 text-white rounded-lg w-96">
-            <button  id="mic1" type="button" class="bg-transparent border-gray-400 text-white" style="font-size: 0.7rem"><img style="size:;" src="../img/Vector.svg" alt=""></button>
         </div>
-        
-      
-        <label for="replyToBeSent" class="block mb-2 text-white">Reply to be sent</label>
-        <div class="flex">
-             <input style="padding: 5px;"placeholder="e.g I am sorry but I won’t be able to join " type="text" id="replyToMessage2" name="replyToBeSent" required class="bg-transparent border-gray-400 text-white rounded-lg w-96">
-             <button id="mic2" type="button" class="bg-transparent border-gray-400 text-white" style="font-size: 0.7rem"><img style="size:;" src="../img/Vector.svg" alt=""></button>
+        <div style="margin-right: 10rem;">
+          <label
+            for=""
+            style="font-size: 1.5rem; font-weight:large; color: white"
+          >{{label}}</label><br />
+          <textarea
+            style="padding: 5px;"
+            placeholder="your personalised message will appear here"
+            name=""
+            id=""
+            cols="50"
+            rows="18"
+            class="bg-transparent text-white rounded-lg"
+          >{{data}}</textarea>
         </div>
-       
-      
-        <label for="sentiment" class="block mb-2 text-white">Sentiment</label>
-        <input style="padding: 5px;"placeholder="Positive / Negative / Neutral" type="text" id="" name="sentiment" required class="bg-transparent border-gray-400 text-white rounded-lg w-96">
-      
-        <label for="tone" class="block mb-2 text-white">Tone</label>
-        <input style="padding: 5px;"placeholder="Rude, Polite, Formal, Informal, Sincere, Pleading, Sarcastic " type="text" id="" name="tone" required class="bg-transparent border-gray-400 text-white rounded-lg w-96"><br>
-      
-        <button type="submit" class="bg-transparent border-gray-400 text-white text-cyan-300 pl-16 pt-7 text-2xl">Generate →</button>
-      </form>
-      
-
-
-
-  </div>
-  <div style="margin-right: 10rem;">
-    <label for="" style="font-size: 1.5rem; font-weight:large; color: white">{{label}}</label><br>
-    <textarea style="padding: 5px;" placeholder="your personalised message will appear here" name="" id="" cols="50" rows="18" class="bg-transparent text-white rounded-lg">{{data}}</textarea>
-  </div>
-  </div>
-</section>
+      </div>
+    </section>
     <script src="../../app.js"></script>
     <script defer src="../../public/js/aiCall.js"></script>
 
-<script>
-        //elements to be triggerred
-        const textFromSpeechBox1 = document.getElementById('replyToMessage1')
-        const buttonToRecordSpeech1= document.getElementById('mic1');
-        const textFromSpeechBox2 = document.getElementById('replyToMessage2')
-        const buttonToRecordSpeech2= document.getElementById('mic2');
-
-        //necessities for speech recognition, interfaces reqd
-        const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-        const SpeechGrammarList =  window.SpeechGrammarList || webkitSpeechGrammarList;
-        const SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
-
-        //basic grammar 
-        const grammer = '#JSGF v1.0;';
-
-        const recognition = new SpeechRecognition();
-        const recognition2= new SpeechRecognition();
-        const speechRecognitionGrammerList = new SpeechGrammarList();
-
-        //adding grammar to created object
-        speechRecognitionGrammerList.addFromString(grammer, 1);
-        //adding grammar to created recognition
-        recognition.grammars = speechRecognitionGrammerList;
-        recognition.lang = 'en-US';
-        recognition.interimResults = true;
-        recognition2.grammars = speechRecognitionGrammerList;
-        recognition2.lang = 'en-US';
-        recognition2.interimResults = true;
-
-        //stop when user stops
-        recognition.onspeechend = () =>{
-            recognition.stop();
-        }
-        recognition2.onspeechend = () =>{
-            recognition2.stop();
-        }
-
-        recognition.onerror = (error) =>{
-            textFromSpeechBox1.textContent = `Error occured in recognition: ${error}`
-        }
-        recognition2.onerror = (error) =>{
-            textFromSpeechBox2.textContent = `Error occured in recognition: ${error}`
-        }
-        
-        buttonToRecordSpeech1.addEventListener('click', () =>{
-            recognition.start();
-        } )
-        buttonToRecordSpeech2.addEventListener('click', () =>{
-            recognition2.start();
-        } )
-
-        recognition.onresult = (input) => {
-            // console.log(input);
-            const last = input.results.length -1;
-            const dataToBeTranscripted = input.results[last][0].transcript;
-            textFromSpeechBox1.value = `${dataToBeTranscripted}`;
-            // console.log(openAICall(dataToBeTranscripted) );   
-        }
-        recognition2.onresult = (input) => {
-            // console.log(input);
-            const last = input.results.length -1;
-            const dataToBeTranscripted = input.results[last][0].transcript;
-            textFromSpeechBox2.value = `${dataToBeTranscripted}`;
-            // console.log(openAICall(dataToBeTranscripted) );   
-        }
+    <script>
+      //elements to be triggerred const textFromSpeechBox1 =
+      document.getElementById('replyToMessage1') const buttonToRecordSpeech1=
+      document.getElementById('mic1'); const textFromSpeechBox2 =
+      document.getElementById('replyToMessage2') const buttonToRecordSpeech2=
+      document.getElementById('mic2'); //necessities for speech recognition,
+      interfaces reqd const SpeechRecognition = window.SpeechRecognition ||
+      webkitSpeechRecognition; const SpeechGrammarList =
+      window.SpeechGrammarList || webkitSpeechGrammarList; const
+      SpeechRecognitionEvent = window.SpeechRecognitionEvent ||
+      webkitSpeechRecognitionEvent; //basic grammar const grammer = '#JSGF
+      v1.0;'; const recognition = new SpeechRecognition(); const recognition2=
+      new SpeechRecognition(); const speechRecognitionGrammerList = new
+      SpeechGrammarList(); //adding grammar to created object
+      speechRecognitionGrammerList.addFromString(grammer, 1); //adding grammar
+      to created recognition recognition.grammars =
+      speechRecognitionGrammerList; recognition.lang = 'en-US';
+      recognition.interimResults = true; recognition2.grammars =
+      speechRecognitionGrammerList; recognition2.lang = 'en-US';
+      recognition2.interimResults = true; //stop when user stops
+      recognition.onspeechend = () =>{ recognition.stop(); }
+      recognition2.onspeechend = () =>{ recognition2.stop(); }
+      recognition.onerror = (error) =>{ textFromSpeechBox1.textContent = `Error
+      occured in recognition: ${error}` } recognition2.onerror = (error) =>{
+      textFromSpeechBox2.textContent = `Error occured in recognition: ${error}`
+      } buttonToRecordSpeech1.addEventListener('click', () =>{
+      recognition.start(); } ) buttonToRecordSpeech2.addEventListener('click',
+      () =>{ recognition2.start(); } ) recognition.onresult = (input) => { //
+      console.log(input); const last = input.results.length -1; const
+      dataToBeTranscripted = input.results[last][0].transcript;
+      textFromSpeechBox1.value = `${dataToBeTranscripted}`; //
+      console.log(openAICall(dataToBeTranscripted) ); } recognition2.onresult =
+      (input) => { // console.log(input); const last = input.results.length -1;
+      const dataToBeTranscripted = input.results[last][0].transcript;
+      textFromSpeechBox2.value = `${dataToBeTranscripted}`; //
+      console.log(openAICall(dataToBeTranscripted) ); }
     </script>
 
-   
-
-</body>
+  </body>
 
 </html>

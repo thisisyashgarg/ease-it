@@ -19,8 +19,6 @@ speechRecognitionGrammerList.addFromString(grammer, 1);
 recognition.grammars = speechRecognitionGrammerList;
 recognition.lang = 'en-US';
 recognition.interimResults = false;
-recognition.continuous = true;
-
 
 recognition.onresult = (input) => {
     // console.log(input);
