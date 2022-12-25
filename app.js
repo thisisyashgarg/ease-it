@@ -44,6 +44,11 @@ app.post("/messages", (req, res) => {
         layout: "messages.hbs",
         data: `${ans.trimStart()}`,
         label: "Your Personalised Message",
+        language: req.body.language,
+        replyToBeSent: req.body.replyToBeSent,
+        replyToMessage: req.body.replyToMessage,
+        sentiment: req.body.sentiment,
+        tone: req.body.tone,
       });
     })
     .catch((err) => console.log(err));
@@ -58,7 +63,7 @@ app.get("/dietchart", (req, res) => {
 });
 
 app.post("/dietchart", (req, res) => {
-  const prompt = `Give me a full day diet plan of ${req.body.calories} calories including ${req.body.carbs} gm carbohydrates, ${req.body.fats} gm fats and ${req.body.protein} gm protein`;
+  const prompt = `Give me a full day diet plan of ${req.body.calories} calories including ${req.body.carbs} gm carbohydrates, ${req.body.fats} gm fats and ${req.body.protein} gm protein with keeping in mind ${req.body.anyHealthComplications} as health complications`;
   openAICall(prompt)
     .then((ans) => {
       console.log(ans);
@@ -66,6 +71,11 @@ app.post("/dietchart", (req, res) => {
         layout: "dietChart.hbs",
         data: `${ans.trimStart()}`,
         label: "Your Diet Chart",
+        calories: req.body.calories,
+        carbs: req.body.carbs,
+        fats: req.body.fats,
+        protein: req.body.protein,
+        anyHealthComplications: req.body.anyHealthComplications,
       });
     })
     .catch((err) => console.log(err));
@@ -89,6 +99,7 @@ app.post("/debugcode", (req, res) => {
         layout: "debugCode.hbs",
         data: `${ans.trimStart()}`,
         label: "Debugged Code",
+        formData: `${req.body.inputCode}`,
       });
     })
     .catch((err) => console.log(err));
@@ -112,6 +123,7 @@ app.post("/codeexplanation", (req, res) => {
         layout: "codeExplanation.hbs",
         data: `${ans}`,
         label: "Explanation",
+        formData: `${req.body.inputCode}`,
       });
     })
     .catch((err) => console.log(err));

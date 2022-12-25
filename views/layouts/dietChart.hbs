@@ -70,6 +70,7 @@
               required
               class="bg-transparent border-gray-400 text-white rounded-lg w-96"
               style="border-color: 2px solid grey;"
+              value="{{calories}}"
             />
 
             <label for="carbs" class="block mb-2 text-white pt-2">Carbohydrates
@@ -82,6 +83,7 @@
               name="carbs"
               required
               class="bg-transparent border-gray-500 text-white rounded-lg w-96"
+              value="{{carbs}}"
             />
 
             <label for="protein" class="block mb-2 text-white">Proteins (in gms)</label>
@@ -93,6 +95,7 @@
               name="protein"
               required
               class="bg-transparent border-gray-400 text-white rounded-lg w-96"
+              value="{{protein}}"
             />
 
             <label for="fats" class="block mb-2 text-white">Fats (in gms)</label>
@@ -104,6 +107,22 @@
               name="fats"
               required
               class="bg-transparent border-gray-400 text-white rounded-lg w-96"
+              value="{{fats}}"
+            /><br />
+
+            <label
+              for="anyHealthComplications"
+              class="block mb-2 text-white"
+            >Health Complications</label>
+            <input
+              style="padding: 5px;"
+              placeholder="Diabetes / Heart Problems / Blood Pressure"
+              type="text"
+              id=""
+              name="anyHealthComplications"
+              required
+              class="bg-transparent border-gray-400 text-white rounded-lg w-96"
+              value="{{anyHealthComplications}}"
             /><br />
 
             <button
