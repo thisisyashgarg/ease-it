@@ -44,6 +44,11 @@ app.post("/messages", (req, res) => {
         layout: "messages.hbs",
         data: `${ans.trimStart()}`,
         label: "Your Personalised Message",
+        language: req.body.language,
+        replyToMessage: req.body.replyToMessage,
+        replyToBeSent: req.body.replyToBeSent,
+        sentiment: req.body.sentiment,
+        tone: req.body.tone,
       });
     })
     .catch((err) => console.log(err));
@@ -66,6 +71,10 @@ app.post("/dietchart", (req, res) => {
         layout: "dietChart.hbs",
         data: `${ans.trimStart()}`,
         label: "Your Diet Chart",
+        calories: req.body.calories,
+        carbs: req.body.carbs,
+        protein: req.body.protein,
+        fats: req.body.fats,
       });
     })
     .catch((err) => console.log(err));
@@ -89,6 +98,7 @@ app.post("/debugcode", (req, res) => {
         layout: "debugCode.hbs",
         data: `${ans.trimStart()}`,
         label: "Debugged Code",
+        inputCode: `${req.body.inputCode}`,
       });
     })
     .catch((err) => console.log(err));
@@ -103,7 +113,7 @@ app.get("/codeexplanation", (req, res) => {
 });
 
 app.post("/codeexplanation", (req, res) => {
-  const prompt = `, Explain the code given below,
+  const prompt = `Explain the code given below,
     ${req.body.inputCode}`;
   openAICall(prompt)
     .then((ans) => {
@@ -112,6 +122,7 @@ app.post("/codeexplanation", (req, res) => {
         layout: "codeExplanation.hbs",
         data: `${ans}`,
         label: "Explanation",
+        inputCode: `${req.body.inputCode}`,
       });
     })
     .catch((err) => console.log(err));
