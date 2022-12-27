@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EaseIt - Code Explaination</title>
+    <title>EaseIt - Ask Me Anything</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,300&family=Roboto:wght@100&display=swap"
       rel="stylesheet"
@@ -43,10 +43,10 @@
         <h1
           class="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
         >
-          Code Explaination
+          Ask Me Anything
         </h1>
         <p class="text-xl text-white pt-6 max-w-sm mx-auto">
-          Enter the whole code and get a detailed explanation for the same
+          You can ask me anything, literally anything
         </p>
       </div>
     </section>
@@ -57,25 +57,35 @@
         <!-- message -->
         <div class="text-white max-w-fit">
           <div>
-            <form method="post" action="/codeexplanation">
+            <form method="post" action="/ama">
               <label
-                for="inputCode"
+                for="ama"
                 style="font-size: 1.5rem; font-weight:large; color: white"
-              >Enter your code here</label><br />
-              <textarea
+              >Enter your query here</label><br />
+              <div class="flex">
+                 <textarea
                 placeholder="type here..."
-                name="inputCode"
+                name="ama"
                 required
-                id=""
+                id="ama"
                 cols="60"
                 rows="20"
                 class="bg-transparent text-white rounded-lg"
                 style="padding: 5px;"
-              >{{inputCode}}</textarea><br />
+              >{{ama}}</textarea><br />
               <button
+                id="mic1"
+                type="button"
+                class="bg-transparent border-gray-400 text-white"
+                style="font-size: 0.7rem"
+              ><img style="size:;" src="../img/Vector.svg" alt="" /></button>
+             
+              </div>
+               <button
                 type="submit"
                 class="bg-transparent border-gray-400 text-white text-cyan-300 pl-24 pt-7 text-2xl justify-center"
-              >Explain →</button>
+              >Ask Now →</button>
+             
             </form>
           </div>
         </div>
@@ -101,6 +111,37 @@
 
     <script src="../../app.js"></script>
     <script defer src="../../public/js/aiCall.js"></script>
+    <script>
+      const textFromSpeechBox1 =document.getElementById('ama') ;
+      const buttonToRecordSpeech1=document.getElementById('mic1'); 
+      const SpeechRecognition =window.SpeechRecognition || webkitSpeechRecognition; 
+      const SpeechGrammarList =window.SpeechGrammarList || webkitSpeechGrammarList;
+      const SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent; //basic grammar
+      const grammer = '#JSGF v1.0;'; 
+
+      const recognition = new SpeechRecognition(); 
+      const speechRecognitionGrammerList = new SpeechGrammarList(); //adding grammar to created object
+      speechRecognitionGrammerList.addFromString(grammer, 1); //adding grammar
+
+      recognition.grammars = speechRecognitionGrammerList; 
+      recognition.lang = 'en-US';
+      recognition.interimResults = true; 
+     
+      recognition.onspeechend = () =>{ recognition.stop(); }
+      recognition.onerror = (error) =>{ textFromSpeechBox1.textContent = `Error
+      occured in recognition: ${error}` } 
+
+      buttonToRecordSpeech1.addEventListener('click', () =>{
+      recognition.start(); } ) 
+      
+      recognition.onresult = (input) => { 
+      const last = input.results.length -1; 
+      const dataToBeTranscripted = input.results[last][0].transcript;
+      textFromSpeechBox1.textContent = `${dataToBeTranscripted}`; 
+      } 
+      
+     
+    </script>
 
   </body>
 </html>

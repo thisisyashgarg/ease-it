@@ -18,11 +18,6 @@ body {
   background-image: url("../img/links\ -\ dark.svg");
 }
 
-input,
-textarea {
-  border: 1px solid grey;
-}
-
 /*
 ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
 */
@@ -989,4 +984,9 @@ video {
 
 .pad-top {
   padding-top: 20px;
+}
+
+input,
+textarea {
+  border: 2px solid white;
 }
