@@ -11,7 +11,7 @@ const openai = new OpenAIApi(configuration);
 const response = await openai.listEngines();
 // const query = 'what is hackathon';
 
-export async function openAICall(prompt) {
+export async function completionCall(prompt) {
   console.log("function called");
   const response = await fetch("https://api.openai.com/v1/completions", {
     method: "POST",
@@ -32,4 +32,4 @@ export async function openAICall(prompt) {
   // console.log(mainData)
   return mainData;
 }
-// openAICall(query);
+// completionCall(query);

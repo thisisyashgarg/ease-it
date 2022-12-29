@@ -219,13 +219,13 @@
       const last = input.results.length -1; 
       const dataToBeTranscripted = input.results[last][0].transcript;
       textFromSpeechBox1.value = `${dataToBeTranscripted}`; 
-      console.log(openAICall(dataToBeTranscripted) ); } 
+      console.log(completionCall(dataToBeTranscripted) ); } 
       
       recognition2.onresult =(input) => { 
       const last = input.results.length -1;
       const dataToBeTranscripted = input.results[last][0].transcript;
       textFromSpeechBox2.value = `${dataToBeTranscripted}`; //
-      console.log(openAICall(dataToBeTranscripted) ); }
+      console.log(completionCall(dataToBeTranscripted) ); }
       
     </script>
 
