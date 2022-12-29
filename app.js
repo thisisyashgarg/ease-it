@@ -6,7 +6,7 @@ import exphbs from "express-handlebars";
 import { completionCall } from "./public/js/aiCall.js";
 
 const app = express();
-const port = 4000;
+const port = 4002;
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -65,7 +65,7 @@ app
     });
   })
   .post((req, res) => {
-    const prompt = `Give me a full day diet plan of ${req.body.calories} calories including ${req.body.carbs} gm carbohydrates, ${req.body.fats} gm fats and ${req.body.protein} gm protein`;
+    const prompt = `Give me a full day ${req.body.veg} diet plan of ${req.body.calories} calories including ${req.body.protein} gm protein for a person living in ${req.body.country} with following health complications: ${req.body.complications}`;
     completionCall(prompt)
       .then((ans) => {
         console.log(ans);
@@ -74,9 +74,10 @@ app
           data: `${ans.trimStart()}`,
           label: "Your Diet Chart",
           calories: req.body.calories,
-          carbs: req.body.carbs,
+          veg: req.body.veg,
           protein: req.body.protein,
-          fats: req.body.fats,
+          country: req.body.country,
+          complications: req.body.complications,
         });
       })
       .catch((err) => console.log(err));
@@ -264,6 +265,30 @@ app
       })
       .catch((err) => console.log(err));
   });
+
+// app
+//   .route("/generateimages")
+//   .get((req, res) => {
+//     res.render("main", {
+//       layout: "generateimages.hbs",
+//       data: ``,
+//       label: "Generated Images",
+//     });
+//   })
+//   .post((req, res) => {
+//     const prompt = `${req.body.idea}`;
+//     completionCall(prompt)
+//       .then((ans) => {
+//         console.log(ans);
+//         res.render("main", {
+//           layout: "generateimages.hbs",
+//           data: `${ans}`,
+//           label: "Generated Images",
+//           idea: req.body.idea,
+//         });
+//       })
+//       .catch((err) => console.log(err));
+//   });
 
 app.listen(port, (req, res) => {
   console.log(`listening on ${port}`);
