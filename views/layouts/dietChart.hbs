@@ -10,6 +10,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="../css/styles.css" />
+
   </head>
 
   <body class="mb-56">
@@ -132,7 +133,7 @@
           </form>
 
         </div>
-        <div>
+        <div id="diet-chart"> 
           <label
             for=""
             style="font-size: 1.5rem; font-weight:large; color: white"
@@ -141,17 +142,21 @@
             style="padding: 5px;"
             placeholder="Your diet chart will appear here"
             name=""
-            id=""
+            
             cols="50"
             rows="15"
-            class="bg-transparent text-white rounded-lg"
+            class="input-border text-transparent bg-clip-text rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4"
           >{{data}}</textarea>
+          {{!-- <button id="download-as-pdf">Download as PDF</button> --}}
         </div>
+
       </div>
     </section>
 
     <script src="../../app.js"></script>
-    <script defer src="../../public/js/aiCall.js"></script>
+    <script defer src="../../public/js/promptCall.js"></script>
+    
+    
   </body>
 
 </html>

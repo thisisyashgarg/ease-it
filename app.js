@@ -3,7 +3,7 @@ import path from "path";
 const __dirname = path.resolve();
 import bodyParser from "body-parser";
 import exphbs from "express-handlebars";
-import { completionCall } from "./public/js/aiCall.js";
+import { completionCall } from "./public/js/promptCall.js";
 
 const app = express();
 const port = 4002;
@@ -289,6 +289,59 @@ app
 //       })
 //       .catch((err) => console.log(err));
 //   });
+
+app
+  .route("/workoutplan")
+  .get((req, res) => {
+    res.render("main", {
+      layout: "workoutplan.hbs",
+      data: ``,
+      label: "Your Workout Plan",
+    });
+  })
+  .post((req, res) => {
+    const prompt = `Give me a weight training plan for person with : ${req.body.bodyweight} body weight, ${req.body.calories} maintenance calories, ${req.body.frequency} times a week with ${req.body.intensity} intensity`;
+    completionCall(prompt)
+      .then((ans) => {
+        console.log(ans);
+        res.render("main", {
+          layout: "workoutplan.hbs",
+          data: `${ans.trimStart()}`,
+          label: "Your Workout Plan",
+          calories: req.body.calories,
+          bodyweight: req.body.bodyweight,
+          frequency: req.body.frequency,
+          intensity: req.body.intensity,
+        });
+      })
+      .catch((err) => console.log(err));
+  });
+
+app
+  .route("/letter")
+  .get((req, res) => {
+    res.render("main", {
+      layout: "letter.hbs",
+      data: ``,
+      label: "Your Letter",
+    });
+  })
+  .post((req, res) => {
+    const prompt = `Write a ${req.body.typeOfLetter} letter in formal tone to ${req.body.recipient} about ${req.body.recipient}`;
+    completionCall(prompt)
+      .then((ans) => {
+        console.log(ans);
+        res.render("main", {
+          layout: "letter.hbs",
+          data: `${ans.trimStart()}`,
+          label: "Your Letter",
+          typeOfLetter: req.body.typeOfLetter,
+          recipient: req.body.recipient,
+          about: req.body.recipient,
+        });
+      })
+      .catch((err) => console.log(err));
+  });
 
 app.listen(port, (req, res) => {
   console.log(`listening on ${port}`);

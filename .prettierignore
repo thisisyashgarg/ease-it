@@ -1,2 +1,3 @@
 views/layouts/messages.hbs
 views/layouts/askmeanything.hbs
+views/layouts/dietChart.hbs

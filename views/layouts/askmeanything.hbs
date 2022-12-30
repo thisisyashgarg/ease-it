@@ -46,7 +46,7 @@
           Ask Me Anything
         </h1>
         <p class="text-xl text-white pt-6 max-w-sm mx-auto">
-          You can ask me anything, literally anything
+          Could not find your niche, ASK ME ANYTHING!
         </p>
       </div>
     </section>
@@ -64,7 +64,6 @@
               >Enter your query here</label><br />
               <div class="flex">
                  <textarea
-                placeholder="type here..."
                 name="ama"
                 required
                 id="ama"
@@ -97,12 +96,11 @@
           >{{label}}</label><br />
           <textarea
             style="padding: 5px;"
-            placeholder="answer will appear here"
             name=""
             id=""
             cols="60"
             rows="20"
-            class="bg-transparent text-white rounded-lg"
+            class="input-border text-transparent bg-clip-text rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4"
           >{{data}}</textarea>
         </div>
 
@@ -110,7 +108,7 @@
     </section>
 
     <script src="../../app.js"></script>
-    <script defer src="../../public/js/aiCall.js"></script>
+    <script defer src="../../public/js/promptCall.js"></script>
     <script>
       const textFromSpeechBox1 =document.getElementById('ama') ;
       const buttonToRecordSpeech1=document.getElementById('mic1'); 
