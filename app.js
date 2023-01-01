@@ -6,7 +6,7 @@ import exphbs from "express-handlebars";
 import { completionCall } from "./public/js/promptCall.js";
 
 const app = express();
-const port = 4002;
+const port = 4000;
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -26,34 +26,6 @@ app.engine(
 app.get("/", (req, res) => {
   res.render("main", { layout: "homepage.hbs" });
 });
-
-app
-  .route("/messages")
-  .get((req, res) => {
-    res.render("main", {
-      layout: "messages.hbs",
-      data: ``,
-      label: "Your Personalised Message",
-    });
-  })
-  .post((req, res) => {
-    const prompt = `Person A: ${req.body.replyToMessage}, Person B : ${req.body.replyToBeSent}, a better answer person B will give in response to Person A, in ${req.body.language} language, with ${req.body.sentiment} sentiment, with tone ${req.body.tone}`;
-    completionCall(prompt)
-      .then((ans) => {
-        console.log(ans);
-        res.render("main", {
-          layout: "messages.hbs",
-          data: `${ans.trimStart()}`,
-          label: "Your Personalised Message",
-          language: req.body.language,
-          replyToMessage: req.body.replyToMessage,
-          replyToBeSent: req.body.replyToBeSent,
-          sentiment: req.body.sentiment,
-          tone: req.body.tone,
-        });
-      })
-      .catch((err) => console.log(err));
-  });
 
 app
   .route("/dietchart")
@@ -78,6 +50,33 @@ app
           protein: req.body.protein,
           country: req.body.country,
           complications: req.body.complications,
+        });
+      })
+      .catch((err) => console.log(err));
+  });
+
+app
+  .route("/workoutplan")
+  .get((req, res) => {
+    res.render("main", {
+      layout: "workoutplan.hbs",
+      data: ``,
+      label: "Your Workout Plan",
+    });
+  })
+  .post((req, res) => {
+    const prompt = `Give me a weight training plan for person with : ${req.body.bodyweight} body weight, ${req.body.calories} maintenance calories, ${req.body.frequency} times a week with ${req.body.intensity} intensity`;
+    completionCall(prompt)
+      .then((ans) => {
+        console.log(ans);
+        res.render("main", {
+          layout: "workoutplan.hbs",
+          data: `${ans.trimStart()}`,
+          label: "Your Workout Plan",
+          calories: req.body.calories,
+          bodyweight: req.body.bodyweight,
+          frequency: req.body.frequency,
+          intensity: req.body.intensity,
         });
       })
       .catch((err) => console.log(err));
@@ -134,30 +133,6 @@ app
   });
 
 app
-  .route("/ama")
-  .get((req, res) => {
-    res.render("main", {
-      layout: "askmeanything.hbs",
-      data: ``,
-      label: "Your response",
-    });
-  })
-  .post((req, res) => {
-    const prompt = `${req.body.ama}`;
-    completionCall(prompt)
-      .then((ans) => {
-        console.log(ans);
-        res.render("main", {
-          layout: "askmeanything.hbs",
-          data: `${ans}`,
-          label: "Your response",
-          ama: `${req.body.ama}`,
-        });
-      })
-      .catch((err) => console.log(err));
-  });
-
-app
   .route("/readmefromcode")
   .get((req, res) => {
     res.render("main", {
@@ -177,6 +152,84 @@ app
           data: `${ans}`,
           label: "Readme",
           inputCode: `${req.body.inputCode}`,
+        });
+      })
+      .catch((err) => console.log(err));
+  });
+
+app
+  .route("/messages")
+  .get((req, res) => {
+    res.render("main", {
+      layout: "messages.hbs",
+      data: ``,
+      label: "Your Personalised Message",
+    });
+  })
+  .post((req, res) => {
+    const prompt = `Person A: ${req.body.replyToMessage}, Person B : ${req.body.replyToBeSent}, a better answer person B will give in response to Person A, in ${req.body.language} language, with ${req.body.sentiment} sentiment, with tone ${req.body.tone}`;
+    completionCall(prompt)
+      .then((ans) => {
+        console.log(ans);
+        res.render("main", {
+          layout: "messages.hbs",
+          data: `${ans.trimStart()}`,
+          label: "Your Personalised Message",
+          language: req.body.language,
+          replyToMessage: req.body.replyToMessage,
+          replyToBeSent: req.body.replyToBeSent,
+          sentiment: req.body.sentiment,
+          tone: req.body.tone,
+        });
+      })
+      .catch((err) => console.log(err));
+  });
+
+app
+  .route("/letter")
+  .get((req, res) => {
+    res.render("main", {
+      layout: "letter.hbs",
+      data: ``,
+      label: "Your Letter",
+    });
+  })
+  .post((req, res) => {
+    const prompt = `Write a ${req.body.typeOfLetter} letter in formal tone to ${req.body.recipient} about ${req.body.recipient}`;
+    completionCall(prompt)
+      .then((ans) => {
+        console.log(ans);
+        res.render("main", {
+          layout: "letter.hbs",
+          data: `${ans.trimStart()}`,
+          label: "Your Letter",
+          typeOfLetter: req.body.typeOfLetter,
+          recipient: req.body.recipient,
+          about: req.body.recipient,
+        });
+      })
+      .catch((err) => console.log(err));
+  });
+
+app
+  .route("/ama")
+  .get((req, res) => {
+    res.render("main", {
+      layout: "askmeanything.hbs",
+      data: ``,
+      label: "Your response",
+    });
+  })
+  .post((req, res) => {
+    const prompt = `${req.body.ama}`;
+    completionCall(prompt)
+      .then((ans) => {
+        console.log(ans);
+        res.render("main", {
+          layout: "askmeanything.hbs",
+          data: `${ans}`,
+          label: "Your response",
+          ama: `${req.body.ama}`,
         });
       })
       .catch((err) => console.log(err));
@@ -289,59 +342,6 @@ app
 //       })
 //       .catch((err) => console.log(err));
 //   });
-
-app
-  .route("/workoutplan")
-  .get((req, res) => {
-    res.render("main", {
-      layout: "workoutplan.hbs",
-      data: ``,
-      label: "Your Workout Plan",
-    });
-  })
-  .post((req, res) => {
-    const prompt = `Give me a weight training plan for person with : ${req.body.bodyweight} body weight, ${req.body.calories} maintenance calories, ${req.body.frequency} times a week with ${req.body.intensity} intensity`;
-    completionCall(prompt)
-      .then((ans) => {
-        console.log(ans);
-        res.render("main", {
-          layout: "workoutplan.hbs",
-          data: `${ans.trimStart()}`,
-          label: "Your Workout Plan",
-          calories: req.body.calories,
-          bodyweight: req.body.bodyweight,
-          frequency: req.body.frequency,
-          intensity: req.body.intensity,
-        });
-      })
-      .catch((err) => console.log(err));
-  });
-
-app
-  .route("/letter")
-  .get((req, res) => {
-    res.render("main", {
-      layout: "letter.hbs",
-      data: ``,
-      label: "Your Letter",
-    });
-  })
-  .post((req, res) => {
-    const prompt = `Write a ${req.body.typeOfLetter} letter in formal tone to ${req.body.recipient} about ${req.body.recipient}`;
-    completionCall(prompt)
-      .then((ans) => {
-        console.log(ans);
-        res.render("main", {
-          layout: "letter.hbs",
-          data: `${ans.trimStart()}`,
-          label: "Your Letter",
-          typeOfLetter: req.body.typeOfLetter,
-          recipient: req.body.recipient,
-          about: req.body.recipient,
-        });
-      })
-      .catch((err) => console.log(err));
-  });
 
 app.listen(port, (req, res) => {
   console.log(`listening on ${port}`);

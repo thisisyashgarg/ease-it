@@ -1,4 +1,4 @@
-<html lang="en">
+{{!-- <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -231,4 +231,247 @@
 
   </body>
 
+</html> --}}
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>EaseIt - Personalised Message</title>
+  </head>
+  <body>
+
+    <div
+      class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-black/20 shadow-md backdrop-blur-2xl rounded-2xl"
+    >
+      <div class="text-gray-100 text-xl">
+        <div class="p-2.5 mt-1 flex items-center">
+          <h1
+            class="ml-3 text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+          ><a href="/"> EaseIt </a></h1>
+          <i
+            class="bi bi-x cursor-pointer ml-28 lg:hidden"
+            onclick="openSidebar()"
+          ></i>
+        </div>
+
+        <div class="my-2 bg-gray-600 h-[1px]"></div>
+
+        <div class="p-2.5 mt-1 flex items-center">
+          <h1 class="ml-3 font-bold">Working Professionals</h1>
+          <i
+            class="bi bi-x cursor-pointer ml-28 lg:hidden"
+            onclick="openSidebar()"
+          ></i>
+        </div>
+
+        <div class="my-4"></div>
+      </div>
+
+      <div
+        class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-transparent input-border text-white"
+      >
+        <i class="fi fi-rr-search"></i>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search"
+          class="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
+        />
+      </div>
+
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-900 text-white bg-gray-600"
+      >
+        <i class="fi fi-rr-restaurant"></i>
+        <span class="text-[15px] ml-4 text-gray-200"><a href="/messages">Personalised Message</a></span>
+      </div>
+
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-900 text-white"
+      >
+        <i class="fi fi-rr-biking-mountain"></i>
+        <span class="text-[15px] ml-4 text-gray-200"><a href="/letter">Formal Letters</a></span>
+      </div>
+      <div class="my-4 bg-gray-600 h-[1px]"></div>
+
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-700 text-white"
+      >
+        <i class="fi fi-rr-angle-small-left"></i>
+        <span class="text-[15px] ml-4 text-gray-200"><a href="/">Back</a></span>
+      </div>
+
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-700 text-white"
+      >
+        <i class="fi fi-rr-exit"></i>
+        <span class="text-[15px] ml-4 text-gray-200">Logout</span>
+      </div>
+    </div>
+
+    <section id="content" class="lg:ml-80 pb-12">
+      <!-- <nav class="flex w-screen justify-center items-center text-center pt-10 bg-grey"> -->
+      <!-- Flex Container -->
+      <!-- <div class="inline-flex items-center justify-between space-x-9 bg-transparent py-4 px-20 rounded-2xl bg-black/10"> -->
+      <!-- logo -->
+      <!-- <img src="/images/openai-logo.svg"  class= "pt-px" alt=""> -->
+      <!-- Links -->
+      <!-- <a href="#" class=" text-white text-gradient">EaseIt</a>
+    <a href="#" class=" text-white">Profile</a>
+    <a href="#" class=" text-white">Logout</a>
+    <a href="#" class="text-cyan-300 text-right" > <-Back </a>
+  </div>
+</nav> -->
+
+      <!-- Page Topic -->
+      <!-- Page Topic -->
+    <section id="personalisedMessage">
+      <div class="content justify-center text-center pt-10 mt-10">
+        <h1
+          class="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+        >
+          Personalised Message
+        </h1>
+        <p class="text-xl text-white pt-6 max-w-sm mx-auto">
+          Just enter your message, tone of your message, language and other
+          prompts and get a personalised message
+        </p>
+      </div>
+    </section>
+
+    <!-- Real Working -->
+
+    <section id="getAnswer">
+      <!-- flex-row division -->
+      <div
+        class="flex flex-row mt-24 space-x-32 justify-center"
+        style="padding: 0;"
+      >
+        <!-- form -->
+        <div class="text-white">
+
+          <form
+            method="post"
+            action="/messages"
+            class="leading-10"
+            style="margin-left: 10rem;"
+          >
+            <label for="language" class="block mb-2 text-white">Language</label>
+            <input
+              style="padding: 5px;"
+              placeholder="English / Hindi "
+              type="text"
+              id="language"
+              name="language"
+              required
+              class="bg-transparent  text-white rounded-lg w-96"
+              value="{{language}}"
+            />
+
+            <label for="replyToMessage" class="block mb-2 text-white pt-2">Reply
+              to message</label>
+            <div class="flex">
+              <input
+                style="padding: 5px;"
+                placeholder="e.g When will you able to join us ?"
+                type="text"
+                id="replyToMessage1"
+                name="replyToMessage"
+                required
+                class="bg-transparent text-white rounded-lg w-96"
+                value="{{replyToMessage}}"
+              />
+              <button
+                id="mic1"
+                type="button"
+                class="bg-transparent border-gray-400 text-white"
+                style="font-size: 0.7rem"
+              ><img style="size:;" src="../img/Vector.svg" alt="" /></button>
+            </div>
+
+            <label for="replyToBeSent" class="block mb-2 text-white">Reply to be
+              sent</label>
+            <div class="flex">
+              <input
+                style="padding: 5px;"
+                placeholder="e.g I am sorry but I won’t be able to join "
+                type="text"
+                id="replyToMessage2"
+                name="replyToBeSent"
+                required
+                class="bg-transparent  text-white rounded-lg w-96"
+                value="{{replyToBeSent}}"
+              />
+              <button
+                id="mic2"
+                type="button"
+                class="bg-transparent border-gray-400 text-white"
+                style="font-size: 0.7rem"
+              ><img style="size:;" src="../img/Vector.svg" alt="" /></button>
+            </div>
+
+            <label
+              for="sentiment"
+              class="block mb-2 text-white"
+            >Sentiment</label>
+            <input
+              style="padding: 5px;"
+              placeholder="Positive / Negative / Neutral"
+              type="text"
+              id=""
+              name="sentiment"
+              required
+              class="bg-transparent  text-white rounded-lg w-96"
+              value="{{sentiment}}"
+            />
+
+            <label for="tone" class="block mb-2 text-white">Tone</label>
+            <input
+              style="padding: 5px;"
+              placeholder="Rude, Polite, Formal, Informal, Sincere, Pleading, Sarcastic "
+              type="text"
+              id=""
+              name="tone"
+              required
+              class="bg-transparent  text-white rounded-lg w-96"
+              value="{{tone}}"
+            /><br />
+
+            <button
+              type="submit"
+              class="bg-transparent border-gray-400 text-white text-cyan-300 pl-16 pt-7 text-2xl"
+            >Generate →</button>
+          </form>
+
+        </div>
+        <div style="margin-right: 10rem;">
+          <label
+            for=""
+            style="font-size: 1.5rem; font-weight:large; color: white"
+          >{{label}}</label><br />
+          <textarea
+            style="padding: 5px;"
+            placeholder="your personalised message will appear here"
+            name=""
+            id=""
+            cols="50"
+            rows="18"
+            class="input-border text-transparent bg-clip-text rounded-lg "
+          >{{data}}</textarea>
+        </div>
+      </div>
+    </section>
+    </section>
+
+    <script src="../../app.js"></script>
+    <script defer src="../../public/js/promptCall.js"></script>
+
+  </body>
 </html>

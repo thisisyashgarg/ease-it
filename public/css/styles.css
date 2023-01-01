@@ -1175,24 +1175,21 @@ video {
   }
 }
 
-.home-padding {
-  margin: 100px;
-  padding: 50px;
-}
-
 .pad-top {
   padding-top: 20px;
 }
 
-input,
-textarea {
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+.input-border,
+textarea,
+input {
   border: 1px solid grey;
 }
 
-input:focus::placeholder {
-  color: transparent;
-}
-
-textarea:focus::placeholder {
-  color: transparent;
+#searchInput {
+  border: none;
 }

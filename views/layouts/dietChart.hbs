@@ -1,4 +1,4 @@
-<html lang="en">
+{{!-- <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -145,7 +145,7 @@
             
             cols="50"
             rows="15"
-            class="input-border text-transparent bg-clip-text rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4"
+            class="bg-transparent text-white rounded-lg"
           >{{data}}</textarea>
           {{!-- <button id="download-as-pdf">Download as PDF</button> --}}
         </div>
@@ -159,4 +159,222 @@
     
   </body>
 
+</html> --}}
+
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>EaseIt - Diet Chart</title>
+  </head>
+  <body>
+
+    <div
+      class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-black/20 shadow-md backdrop-blur-2xl rounded-2xl"
+    >
+      <div class="text-gray-100 text-xl">
+        <div class="p-2.5 mt-1 flex items-center">
+          <h1
+            class="ml-3 text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+          ><a href="/"> EaseIt </a></h1>
+          <i
+            class="bi bi-x cursor-pointer ml-28 lg:hidden"
+            onclick="openSidebar()"
+          ></i>
+        </div>
+
+        <div class="my-2 bg-gray-600 h-[1px]"></div>
+
+        <div class="p-2.5 mt-1 flex items-center">
+          <h1 class="ml-3 font-bold">Fitness Freaks</h1>
+          <i
+            class="bi bi-x cursor-pointer ml-28 lg:hidden"
+            onclick="openSidebar()"
+          ></i>
+        </div>
+
+        <div class="my-4"></div>
+      </div>
+
+      <div
+        class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-transparent input-border text-white"
+      >
+        <i class="fi fi-rr-search"></i>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search"
+          class="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
+        />
+      </div>
+
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-900 text-white bg-gray-600"
+      >
+        <i class="fi fi-rr-restaurant"></i>
+        <span class="text-[15px] ml-4 text-gray-200"><a href="/dietchart">Diet Chart</a></span>
+      </div>
+
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-900 text-white"
+      >
+        <i class="fi fi-rr-biking-mountain"></i>
+        <span class="text-[15px] ml-4 text-gray-200"><a href="/workoutplan">Workout Plan</a></span>
+      </div>
+      <div class="my-4 bg-gray-600 h-[1px]"></div>
+
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-700 text-white"
+      >
+        <i class="fi fi-rr-angle-small-left"></i>
+        <span class="text-[15px] ml-4 text-gray-200"><a href="/">Back</a></span>
+      </div>
+
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-700 text-white"
+      >
+        <i class="fi fi-rr-exit"></i>
+        <span class="text-[15px] ml-4 text-gray-200">Logout</span>
+      </div>
+    </div>
+
+    <section id="content" class="lg:ml-80 pb-12">
+      <!-- <nav class="flex w-screen justify-center items-center text-center pt-10 bg-grey"> -->
+      <!-- Flex Container -->
+      <!-- <div class="inline-flex items-center justify-between space-x-9 bg-transparent py-4 px-20 rounded-2xl bg-black/10"> -->
+      <!-- logo -->
+      <!-- <img src="/images/openai-logo.svg"  class= "pt-px" alt=""> -->
+      <!-- Links -->
+      <!-- <a href="#" class=" text-white text-gradient">EaseIt</a>
+    <a href="#" class=" text-white">Profile</a>
+    <a href="#" class=" text-white">Logout</a>
+    <a href="#" class="text-cyan-300 text-right" > <-Back </a>
+  </div>
+</nav> -->
+
+      <!-- Page Topic -->
+      <section id="personalisedMessage">
+        <div class="content justify-center text-center pt-10 mt-10">
+          <h1 class="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+            Diet Chart
+          </h1>
+          <p class="text-xl text-white pt-6 max-w-sm mx-auto">
+            Enter your caloric intake, amount of carbs, proteins and fats and
+            get your diet chart
+          </p>
+        </div>
+      </section>
+
+      <section id="getAnswer">
+        <!-- flex-row division -->
+        <div class="flex flex-row mt-24 space-x-32 justify-center">
+          <!-- form -->
+          <div class="text-white" style="">
+
+            <form method="post" action="/dietchart" class="leading-10">
+              <label for="calories" class="block mb-2 text-white">Total Calories
+                ( in kCal)</label>
+              <input
+                style="padding: 5px;"
+                placeholder="e.g 2300"
+                type="text"
+                name="calories"
+                required
+                class="bg-transparent text-white rounded-lg w-96"
+                style="border-color: 2px solid grey;"
+                value="{{calories}}"
+              />
+
+              <label for="veg" class="block mb-2 text-white pt-2">Vegetarian /
+                Non-vegetarian</label>
+              <input
+                style="padding: 5px;"
+                placeholder="e.g Vegetarian / Non-vegetarian / Vegan"
+                type="text"
+                id="replyToMessage1"
+                name="veg"
+                required
+                class="bg-transparent text-white rounded-lg w-96"
+                value="{{veg}}"
+              />
+
+              <label for="protein" class="block mb-2 text-white">Proteins (in
+                gms)</label>
+              <input
+                style="padding: 5px;"
+                placeholder="e.g 100"
+                type="text"
+                id="replyToMessage2"
+                name="protein"
+                required
+                class="bg-transparent text-white rounded-lg w-96"
+                value="{{protein}}"
+              />
+
+              <label for="country" class="block mb-2 text-white">Country Of
+                Residence</label>
+              <input
+                style="padding: 5px;"
+                placeholder="e.g India, USA, China"
+                type="text"
+                id=""
+                name="country"
+                required
+                class="bg-transparent text-white rounded-lg w-96"
+                value="{{country}}"
+              />
+
+              <label for="complications" class="block mb-2 text-white">Any
+                Health Complications</label>
+              <input
+                style="padding: 5px;"
+                placeholder="e.g Diabetes, Asthma, Blood Pressure"
+                type="text"
+                id=""
+                name="complications"
+                required
+                class="bg-transparent text-white rounded-lg w-96"
+                value="{{complications}}"
+              />
+
+              <br />
+
+              <button
+                type="submit"
+                class="bg-transparent text-white text-cyan-300 pl-16 pt-7 text-2xl"
+              >Generate →</button>
+            </form>
+
+          </div>
+          <div id="diet-chart">
+            <label
+              for=""
+              style="font-size: 1.5rem; font-weight:large; color: white"
+            >{{label}}</label><br />
+            <textarea
+              style="padding: 5px;"
+              placeholder="Your diet chart will appear here"
+              name=""
+              cols="50"
+              rows="15"
+              class="bg-transparent text-white rounded-lg "
+            >{{data}}</textarea>
+            {{! <button id="download-as-pdf">Download as PDF</button> }}
+          </div>
+
+        </div>
+      </section>
+    </section>
+
+    <script src="../../app.js"></script>
+    <script defer src="../../public/js/promptCall.js"></script>
+
+  </body>
 </html>
