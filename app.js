@@ -24,6 +24,10 @@ app.engine(
 );
 
 app.get("/", (req, res) => {
+  res.render("main", { layout: "landingPage.hbs" });
+});
+
+app.get("/homepage", (req, res) => {
   res.render("main", { layout: "homepage.hbs" });
 });
 
