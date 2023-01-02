@@ -32,4 +32,5 @@ export async function completionCall(prompt) {
   // console.log(mainData)
   return mainData;
 }
+
 // completionCall(query);
