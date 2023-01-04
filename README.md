@@ -1,5 +1,5 @@
 # EaseIt
 
-## EaseIt can write personalised messages for you, make your diet chart, debug your code of any programming language, explain any code and much more.
+## EaseIt is an AI powered tool that can write personalised messages, debug code of any language, make songs in any artist style, make your workout plan and can do anything that you can think of.
 
 [Visit EaseIt](https://easeit.cyclic.app)
