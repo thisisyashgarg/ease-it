@@ -1323,3 +1323,8 @@ input {
 .montserrat {
   font-family: "Montserrat", sans-serif;
 }
+
+.buttons:hover,
+.buttons:focus {
+  font-weight: 750;
+}
