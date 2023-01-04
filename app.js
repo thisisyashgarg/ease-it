@@ -6,7 +6,7 @@ import exphbs from "express-handlebars";
 import { completionCall } from "./public/js/promptCall.js";
 
 const app = express();
-const port = 4000;
+const port = 4002;
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
