@@ -1319,6 +1319,7 @@ input {
   font-weight: 750;
 }
 
+/*card glow */
 .card:hover {
   transition-duration: 350ms;
   box-shadow: 0 5px 20px 5px #9696962a;
@@ -1332,4 +1333,11 @@ input {
   top: 0;
 
   background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
+}
+
+.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
 }
