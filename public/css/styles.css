@@ -34,6 +34,14 @@ body {
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
+/*
+! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
+*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
 
 *,
 ::before,
@@ -634,10 +642,6 @@ video {
   margin-top: 10px;
 }
 
-.mt-12 {
-  margin-top: 3rem;
-}
-
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -654,10 +658,6 @@ video {
   display: inline-flex;
 }
 
-.grid {
-  display: grid;
-}
-
 .hidden {
   display: none;
 }
@@ -668,10 +668,6 @@ video {
 
 .h-80 {
   height: 20rem;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .w-screen {
@@ -700,10 +696,6 @@ video {
 
 .w-80 {
   width: 20rem;
-}
-
-.w-10\/12 {
-  width: 83.333333%;
 }
 
 .max-w-sm {
@@ -1064,11 +1056,6 @@ video {
   font-size: 15px;
 }
 
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
 .text-\[250px\] {
   font-size: 250px;
 }
@@ -1257,11 +1244,6 @@ video {
   }
 }
 
-input:focus::placeholder,
-textarea:focus::placeholder {
-  color: transparent;
-}
-
 .input-border,
 textarea,
 input {
@@ -1270,6 +1252,14 @@ input {
 
 #searchInput {
   border: none;
+}
+
+.input-border {
+  border: 1px solid gray;
+}
+
+.pad-top {
+  padding-top: 20px;
 }
 
 /* Hamburger Menu */
@@ -1327,4 +1317,19 @@ input {
 .buttons:hover,
 .buttons:focus {
   font-weight: 750;
+}
+
+.card:hover {
+  transition-duration: 350ms;
+  box-shadow: 0 5px 20px 5px #9696962a;
+}
+
+.card .glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
 }
