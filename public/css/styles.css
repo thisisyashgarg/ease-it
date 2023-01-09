@@ -1341,3 +1341,12 @@ input {
   width: 100%;
   text-decoration: none;
 }
+
+footer {
+  text-align: center;
+  color: grey;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 1rem;
+}
