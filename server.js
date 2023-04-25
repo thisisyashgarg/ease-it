@@ -3,7 +3,7 @@ import path from "path";
 const __dirname = path.resolve();
 import bodyParser from "body-parser";
 import exphbs from "express-handlebars";
-import { completionCall } from "./public/js/promptCall.js";
+import { completionCall } from "./openAPICall";
 
 const app = express();
 const port = 4002;
@@ -322,30 +322,6 @@ app
       })
       .catch((err) => console.log(err));
   });
-
-// app
-//   .route("/generateimages")
-//   .get((req, res) => {
-//     res.render("main", {
-//       layout: "generateimages.hbs",
-//       data: ``,
-//       label: "Generated Images",
-//     });
-//   })
-//   .post((req, res) => {
-//     const prompt = `${req.body.idea}`;
-//     completionCall(prompt)
-//       .then((ans) => {
-//         console.log(ans);
-//         res.render("main", {
-//           layout: "generateimages.hbs",
-//           data: `${ans}`,
-//           label: "Generated Images",
-//           idea: req.body.idea,
-//         });
-//       })
-//       .catch((err) => console.log(err));
-//   });
 
 app.listen(port, (req, res) => {
   console.log(`listening on ${port}`);
